@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="pandoc" />
+
+        <meta name="author" content="Akash Ghose" />
+    
+    
+    <title>TermProject.utf8</title>
+
+        <script src="TermProject_files/jquery-1.11.3/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="TermProject_files/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="TermProject_files/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="TermProject_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
+    <script src="TermProject_files/navigation-1.1/tabsets.js"></script>
+    <link href="TermProject_files/magnific-popup-1.1.0/magnific-popup.css" rel="stylesheet" />
+    <script src="TermProject_files/magnific-popup-1.1.0/jquery.magnific-popup.min.js"></script>
+    <link href="TermProject_files/downcute-0.1/downcute.css" rel="stylesheet" />
+    <link href="TermProject_files/downcute-0.1/downcute_fonts_embed.css" rel="stylesheet" />
+    <script src="TermProject_files/downcute-0.1/downcute.js"></script>
+    <script src="TermProject_files/prism-1.22/prism.js"></script>
+    <link href="TermProject_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+    <script src="TermProject_files/anchor-sections-1.0/anchor-sections.js"></script>
+    
+    
+    
+    
+    <!-- tabsets -->
+    <script>
+      $(document).ready(function () {
+	  window.buildTabsets("toc");
+      });
+      $(document).ready(function () {
+	  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+	      $(this).parent().toggleClass('nav-tabs-open')
+	  });
+      });
+    </script>
+
+    <!-- code folding -->
+    
+    <!-- code download -->
+    
+    <!-- tabsets dropdown -->
+
+    <style type="text/css">
+      .tabset-dropdown > .nav-tabs {
+	  display: inline-table;
+	  max-height: 500px;
+	  min-height: 44px;
+	  overflow-y: auto;
+	  background: white;
+	  border: 1px solid #ddd;
+	  border-radius: 4px;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li.active:before {
+	  content: "";
+	  font-family: 'Glyphicons Halflings';
+	  display: inline-block;
+	  padding: 10px;
+	  border-right: 1px solid #ddd;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+	  content: "&#xe258;";
+	  border: none;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+	  content: "";
+	  font-family: 'Glyphicons Halflings';
+	  display: inline-block;
+	  padding: 10px;
+	  border-right: 1px solid #ddd;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li.active {
+	  display: block;
+      }
+
+      .tabset-dropdown > .nav-tabs > li.active a {
+  	  padding: 0 15px !important;
+      }
+
+      .tabset-dropdown > .nav-tabs > li > a,
+      .tabset-dropdown > .nav-tabs > li > a:focus,
+      .tabset-dropdown > .nav-tabs > li > a:hover {
+	  border: none;
+	  display: inline-block;
+	  border-radius: 4px;
+	  background-color: transparent;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+	  display: block;
+	  float: none;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li {
+	  display: none;
+	  margin-left: 0 !important;
+      }
+    </style>
+    
+</head>
+
+<body class="preload">
+
+                  <!-- downcute start -->   
+   <div id="docute" class="Root">
+     <div class="Page layout-narrow">
+      <div class="Wrap">
+        <div class="Sidebar">
+          <div class="SidebarItems" id="toc">
+            <ul>
+            <li><a href="#phase-1-problem-statement">Phase 1: Problem statement</a></li>
+            <li><a href="#phase-2-data-collection">Phase 2: Data Collection</a></li>
+            <li><a href="#phase-3-data-cleaning">Phase 3: Data Cleaning</a></li>
+            <li><a href="#phase-4-eda-and-data-engineering">Phase 4: EDA and Data Engineering</a></li>
+            <li><a href="#phase-5-modeling-and-analysis">Phase 5: Modeling and Analysis</a></li>
+            <li><a href="#phase-6-building-a-data-product">Phase 6: Building a Data Product</a></li>
+            <li><a href="#phase-7-documenting-and-reporting">Phase 7: Documenting and Reporting</a></li>
+            </ul>
+          </div>
+          <div data-position="sidebar:post-end" class="InjectedComponents"><div class="dark-theme-toggler"><div class="toggle"><div class="toggle-track"><div class="toggle-track-check"><img  src="data:image/png;base64,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" role="presentation" style="pointer-events: none;" width="16" height="16"></div> <div class="toggle-track-x"><img src="data:image/png;base64,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" role="presentation" style="pointer-events: none;" width="16" height="16"></div></div> <div class="toggle-thumb"></div></div> <input type="checkbox" aria-label="Switch between Dark and Default theme" class="toggler-screen-reader-only"></div></div>
+        </div>
+        <div class="Main">
+          <div class="Content" id="content"> 
+   
+   
+        
+      <h1 class="title"><p>EAS 345 Term Project:</p>
+Is there Systemic Racism in America?</h1>
+      
+      <p class="authors">
+           <span class="glyphicon glyphicon-user"></span> Akash Ghose
+      </p>
+         <p class="date"><span class="glyphicon glyphicon-calendar"></span> 12/6/2020</p>
+         
+   
+      
+   
+<!-- Don't indent these lines or it will mess pre blocks indentation --> 
+<div class="page-content has-page-title">
+<div id="phase-1-problem-statement" class="section level2">
+<h2>Phase 1: Problem statement</h2>
+<p><strong>Area of research:</strong> Social issues surrounding racial tension in America.</p>
+<p><strong>Title of project:</strong> Does systemic racism exist in America?</p>
+<p><strong>Potential clients:</strong> People who wish to view the data about social disparities in America</p>
+<p><strong>Potential sponsors:</strong> People who wish to inform others of the existence (or non-existence) of social disparities in America</p>
+<p><strong>Objective:</strong> On the Oct. 7 2020, during the Vice Presidential debate, Mike Pence declared that systematic racism does not exist in America. My goal with this project is to aggregate data to prove or disprove that notion. I will try to do so by looking at the public data available and attempt to compare race vs arrests vs population size, race vs severity of crime vs incarceration rate/time, race vs mortgage loans denied/accepted, race vs income/job opportunities, race vs educational opportunities. In the end, I hope to be able to use this data to paint a very clear and coherent picture about social disparities in America, and aggregate it all in a very clean and concise place for all to view.</p>
+<hr />
+</div>
+<div id="phase-2-data-collection" class="section level2">
+<h2>Phase 2: Data Collection</h2>
+<div id="crime-related-data-sources" class="section level3">
+<h3>Crime Related Data sources</h3>
+<p><strong>Names of files:</strong> 2019_FBI_arrests_by_race_total.csv</p>
+<p>2019_FBI_arrests_by_race_under18.csv</p>
+<p>2019_FBI_arrests_by_race_18_and_over.csv</p>
+<p><strong>Source:</strong> <a href="https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019/topic-pages/tables/table-49" class="uri">https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019/topic-pages/tables/table-49</a></p>
+<p><strong>Details:</strong> As the name suggests, this contains data about arrests in 2019. It contains details such as the race of the perpetrators and the type of crime they were arrested for.</p>
+</div>
+<div id="finance-related-data-sources" class="section level3">
+<h3>Finance Related Data sources</h3>
+<p><strong>Name of file:</strong> NFWBS_PUF_2016_data_readable.csv</p>
+<p><strong>Source:</strong> <a href="https://www.consumerfinance.gov/data-research/financial-well-being-survey-data/" class="uri">https://www.consumerfinance.gov/data-research/financial-well-being-survey-data/</a></p>
+<p><strong>Details:</strong> This is the National Financial Wellbeing Survey data from a survey that was conducted in 2016. This contains details about respondents and respondents’ financial well-being, including characteristics like income, age, race, savings, past financial experiences, financial skills, behaviors, attitudes ect. **Of note: The original file I downloaded was: NFWBS_PUF_2016_data.csv. I used NFWBS_PUF_2016_read_in_R.R to read the file and then write it into the more readable csv.</p>
+<p><strong>Name of file:</strong> hmda_2017_nationwide_all-records_labels.csv</p>
+<p><strong>Source:</strong> <a href="https://www.consumerfinance.gov/data-research/hmda/historic-data/?geo=nationwide&amp;records=all-records&amp;field_descriptions=labels" class="uri">https://www.consumerfinance.gov/data-research/hmda/historic-data/?geo=nationwide&amp;records=all-records&amp;field_descriptions=labels</a></p>
+<p><strong>Details:</strong> This contains all the mortgage applications filed in 2017. It contains data about the applications and applicants, including details such as applicants’ demographics and whether the application was accepted or rejected.</p>
+</div>
+<div id="us-population-data-source" class="section level3">
+<h3>US Population Data source</h3>
+<p><strong>Name of file:</strong> US_population_est_2010-2019.csv <strong>Source:</strong> <a href="https://www.census.gov/data/tables/time-series/demo/popest/2010s-national-detail.html#par_textimage_1537638156" class="uri">https://www.census.gov/data/tables/time-series/demo/popest/2010s-national-detail.html#par_textimage_1537638156</a></p>
+<p><strong>Details:</strong> Contains US population estimates from 2010-2019. Includes separation by race as well as the totals.</p>
+<div id="ub-box-that-contains-my-data" class="section level4">
+<h4>UB box that contains my data:</h4>
+<p><a href="https://buffalo.box.com/s/9231grwf8pw2sjs5jhkvodavc6z21gt3" class="uri">https://buffalo.box.com/s/9231grwf8pw2sjs5jhkvodavc6z21gt3</a></p>
+<hr />
+</div>
+</div>
+</div>
+<div id="phase-3-data-cleaning" class="section level2">
+<h2>Phase 3: Data Cleaning</h2>
+<p><strong>Steps I have taken to clean my data:</strong></p>
+<ul>
+<li><p>Dropped irrelevant rows.</p>
+<ul>
+<li><p>I have dropped rows using both the native “-“ operator and also the dplyr slice method.</p></li>
+<li><p>Dropped rows with NA values.</p></li>
+</ul>
+<pre class="r"><code>#Getting rid of unnecessary rows/rows without data from the FBI arrest datasets
+intermediate_FBI_arrest_by_race_under18 &lt;- 
+    X2019_FBI_arrests_by_race_under18[-c(1:6,39:43),]
+intermediate_FBI_arrest_by_race_total &lt;- 
+    X2019_FBI_arrests_by_race_total %&gt;% slice(-c(1:6,39:42),)
+intermediate_FBI_arrest_by_race_18_and_over &lt;-
+    na.omit(X2019_FBI_arrests_by_race_18_and_over) %&gt;% slice(-c(32),)</code></pre></li>
+<li><p>Dropped irrelevant columns.</p>
+<pre class="r"><code>#Removing irrelevant columns (features)
+intermediate_FBI_arrest_by_race_total &lt;- 
+  select(intermediate_FBI_arrest_by_race_total, -c(14:19))
+intermediate_FBI_arrest_by_race_under18 &lt;- 
+  select(intermediate_FBI_arrest_by_race_under18, -c(14:19))
+intermediate_FBI_arrest_by_race_18_and_over &lt;- 
+  select(intermediate_FBI_arrest_by_race_18_and_over, -c(14:19))</code></pre></li>
+<li><p>Changed column values so I can use them as column names</p>
+<ul>
+<li><p>I wanted to assign my first row to be column names (as that is how the data is mean to be read), however, as it stood, R wouldn’t let me do so because it wanted the column names to be unique, and the values in the first row were not unique.</p></li>
+<li><p>So, I had to change the values (by adding “%” in front of values that need them) so that it can be read the way it was meant to be read</p></li>
+</ul>
+<pre class="r"><code>#Changing column values so I can use them as column names later
+indecies &lt;- seq(8,13)
+for(i in indecies){
+  &quot;For each of the columns 8:13, 
+  add a &#39;%&#39; sign in front of the values of the first row&quot;
+  val &lt;- intermediate_FBI_arrest_by_race_total[1,i]
+  intermediate_FBI_arrest_by_race_total[1,i] = paste(&quot;%&quot;,val)
+
+  val &lt;- intermediate_FBI_arrest_by_race_under18[1,i]
+  intermediate_FBI_arrest_by_race_under18[1,i] = paste(&quot;%&quot;,val)
+
+  val &lt;- intermediate_FBI_arrest_by_race_18_and_over[1,i]
+  intermediate_FBI_arrest_by_race_18_and_over[1,i] = paste(&quot;%&quot;,val)
+}</code></pre></li>
+<li><p>Assigned first row to be column names</p>
+<ul>
+<li><p>Instead of column names being just numbers, they are now properly labeled</p></li>
+<li><p>Also, the first row (which contained what are now the column names) is dropped as it becomes redundant here.</p></li>
+</ul>
+<pre class="r"><code>#Assigning appropriate column names for ease of readability 
+names(intermediate_FBI_arrest_by_race_total) &lt;- 
+  intermediate_FBI_arrest_by_race_total[1,]
+names(intermediate_FBI_arrest_by_race_under18) &lt;- 
+  intermediate_FBI_arrest_by_race_under18[1,]
+names(intermediate_FBI_arrest_by_race_18_and_over) &lt;- 
+  intermediate_FBI_arrest_by_race_18_and_over[1,]
+
+#Dropping the first rows as they are no longer needed
+intermediate_FBI_arrest_by_race_total &lt;- 
+  intermediate_FBI_arrest_by_race_total[-c(1),]
+intermediate_FBI_arrest_by_race_under18 &lt;- 
+  intermediate_FBI_arrest_by_race_under18[-c(1),]
+intermediate_FBI_arrest_by_race_18_and_over &lt;- 
+  intermediate_FBI_arrest_by_race_18_and_over[-c(1),]</code></pre></li>
+<li><p>Changed data values from character to numeric</p>
+<pre class="r"><code>  #Changing the data values from character to numeric
+intermediate_FBI_arrest_by_race_total[,2:13] &lt;- 
+  lapply(2:13, 
+       function(x) as.numeric(intermediate_FBI_arrest_by_race_total[[x]]))
+intermediate_FBI_arrest_by_race_under18[,2:13] &lt;- 
+  lapply(2:13, 
+       function(x) as.numeric(intermediate_FBI_arrest_by_race_under18[[x]]))
+intermediate_FBI_arrest_by_race_18_and_over[,2:13] &lt;- 
+  lapply(2:13, 
+       function(x) as.numeric(intermediate_FBI_arrest_by_race_18_and_over[[x]]))</code></pre></li>
+<li><p>Changed the first column from characters to factors</p>
+<ul>
+<li>Both these last two changes were done to aide in analyzing during the EDA phase</li>
+</ul>
+<pre class="r"><code>#Changing the first column into factors
+intermediate_FBI_arrest_by_race_total[,1] &lt;- 
+  lapply(1, 
+       function(x) as.factor(intermediate_FBI_arrest_by_race_total[[x]]))
+intermediate_FBI_arrest_by_race_under18[,1] &lt;- 
+  lapply(1, 
+       function(x) as.factor(intermediate_FBI_arrest_by_race_under18[[x]]))
+intermediate_FBI_arrest_by_race_18_and_over[,1] &lt;- 
+  lapply(1, 
+       function(x) as.factor(intermediate_FBI_arrest_by_race_18_and_over[[x]]))</code></pre></li>
+</ul>
+<hr />
+</div>
+<div id="phase-4-eda-and-data-engineering" class="section level2">
+<h2>Phase 4: EDA and Data Engineering</h2>
+<p><strong>List of EDA steps I have taken:</strong></p>
+<ul>
+<li><p>I have used</p>
+<ul>
+<li><p>Head()</p></li>
+<li><p>Tail()</p></li>
+<li><p>Summary()</p></li>
+<li><p>Colnames()</p></li>
+<li><p>View()</p></li>
+</ul></li>
+<li><p>In various places throughout this phase and throughout the previous data cleaning phase to get a better understanding of the data I’m dealing with and figure out what to do next. For example, head and tail were useful in figuring out quickly whether the top and bottom of the data were similar, whether there were any inconsistencies that needed to be dealt with. Summary() gave me a whole lot of useful information. To start, it would tell me quickly if the data I am dealing with numbers as it seems or characters. With my mortgage data, summary() told me that I have 51 NAs in my “cleaned” “mortgage_dataloan_amount_000s”. It also told me that the minimum amount of loan requested was $1000 and maximum was $30,000,000, which I thought was interesting. Colnames() was needed because I realized that some of the column names were not what they seemed. For example, in my FBI arrests data, I see a column name as “Black or African American” when I look at it with view(), but the actual column name is “Black or”. View() was used frequently not only to get a holistic idea of the raw data, but also to see if the changes I was making while cleaning was behaving the way I expected them to.</p></li>
+<li><p>Used dplyr techniques such as:</p>
+<ul>
+<li><p>Select()</p>
+<p>+Select was used in a few different places primarily to drop columns that were unnecessary or those that became obsolete</p></li>
+<li><p>Slice()</p>
+<ul>
+<li>Slice() was used a couple of times to get rid of unwanted rows</li>
+</ul></li>
+<li><p>%&gt;%</p>
+<ul>
+<li>The pipe operator was used extensively throughout the last two phases for a multitude of reasons, including for simplicity and sake of readability</li>
+</ul></li>
+<li><p>Mutate()</p>
+<ul>
+<li>Was used to add my own column with information about all non-white races in my FBI arrest datasets</li>
+</ul></li>
+<li><p>Relocate()</p>
+<ul>
+<li>Was used to re-arrange the placement of my recently added column for readability purposes.</li>
+</ul></li>
+</ul>
+<pre class="r"><code>#Combine non-white races into a single column
+#Combine %non-whites into a single column
+#Drop first column because it is useless
+#relocate the new rows to a better position for readability
+alt_FBI_arrest_by_race_total &lt;-FBI_arrest_by_race_total %&gt;%
+  mutate(Non_white = .[[5]]+.[[6]]+.[[7]]+.[[8]]) %&gt;%
+  mutate(&quot;% Non_white&quot; = .[[11]]+.[[12]]+.[[13]]+.[[14]]) %&gt;%
+  select(-c(1)) %&gt;%
+  relocate(Non_white, .after = &quot;White&quot;) %&gt;%
+  relocate(&quot;% Non_white&quot;, .after = &quot;% White&quot;)
+alt_FBI_arrest_by_race_under18 &lt;-FBI_arrest_by_race_under18 %&gt;%
+  mutate(Non_white = .[[5]]+.[[6]]+.[[7]]+.[[8]]) %&gt;%
+  mutate(&quot;% Non_white&quot; = .[[11]]+.[[12]]+.[[13]]+.[[14]]) %&gt;%
+  select(-c(1)) %&gt;%
+  relocate(Non_white, .after = &quot;White&quot;) %&gt;%
+  relocate(&quot;% Non_white&quot;, .after = &quot;% White&quot;)
+alt_FBI_arrest_by_race_18_and_over &lt;-FBI_arrest_by_race_18_and_over %&gt;%
+  mutate(Non_white = .[[5]]+.[[6]]+.[[7]]+.[[8]]) %&gt;%
+  mutate(&quot;% Non_white&quot; = .[[11]]+.[[12]]+.[[13]]+.[[14]]) %&gt;%
+  select(-c(1)) %&gt;%
+  relocate(Non_white, .after = &quot;White&quot;) %&gt;%
+  relocate(&quot;% Non_white&quot;, .after = &quot;% White&quot;)</code></pre></li>
+<li><p>Used the following techniques to create graphs:</p>
+<ul>
+<li><p>Boxplot()</p>
+<ul>
+<li>I initially created the boxplot in hopes of learning some useful information about the loan amounts that were requested. I found none, so I moved on to geom_boxplot</li>
+</ul></li>
+</ul>
+<p><img src="TermProject_files/figure-html/unnamed-chunk-9-1.png" width="768" /></p>
+<ul>
+<li><p>Geom_boxplot()</p>
+<ul>
+<li>After tinkering with this a little bit, I was able to graph something that actually showed me useful information</li>
+</ul></li>
+</ul>
+<p><img src="TermProject_files/figure-html/unnamed-chunk-10-1.png" width="768" /></p>
+<ul>
+<li><p>As you can see, white people request more loans of higher amounts than other people, especially black people</p></li>
+<li><p>Geom_bar()</p>
+<ul>
+<li>The goem barplot was used to draw the number of loans that were accepted and denied and with colors to show much of it belonged to each race</li>
+</ul></li>
+</ul>
+<p><img src="TermProject_files/figure-html/unnamed-chunk-11-1.png" width="768" /></p>
+<ul>
+<li>These last two graphs show that even though white poeple request higher loan amounts, black people are still more likely to have their mortgage loan requests rejected.</li>
+</ul></li>
+</ul>
+<hr />
+</div>
+<div id="phase-5-modeling-and-analysis" class="section level2">
+<h2>Phase 5: Modeling and Analysis</h2>
+<p><strong>Modeling algorithms used:</strong></p>
+<p><em>Linear regression: </em></p>
+<ul>
+<li><p>The intent while using this algorithm was to try and predict either the loan amount that would be requested or the applicant’s income, given the available information I have about the applicant</p></li>
+<li><p>I made 4 different models.</p></li>
+<li><p>The first one tried to model loan vs the applicant’s income and applicant’s race, where the amount of loan requested was the output/what the model would be predicting, and income and race were the inputs.</p>
+<ul>
+<li><p>The p-value from this model was very good, less than 2.2e-16, which tells me that my variables had a very high degree of relatability.</p></li>
+<li><p>However, the R-squared and Adjusted R-squared values were not that high, less than 0.3, which meant that my predictability power of my model was not that good.</p></li>
+</ul></li>
+<li><p>I tried to increase the R-squared by adding more variables for my second and third model, i.e. co-applicant’s presence and co-applicant’s race.</p></li>
+<li><p>For my fourth lm model, I used loan amount requested, applicant’s race and presence of co-applicant to try and predict the applicant’s income.</p></li>
+<li><p>I think the reason why my lm model does not have good predicting power is because, while there is significant correlation between all the variables (i.e. white people are more likely to request for larger loans than say black people, or people with higher incomes would ask for higher sums etc.), most people still just never ask for more than a few thousand dollars; they all cluster near the bottom.</p></li>
+</ul>
+<pre class="r"><code>#LM - loan vs applicant_income and applicant_race
+lm_model_00</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = loan_amount_000s ~ applicant_income_000s + applicant_race_1, 
+##     data = mortgage_data_subset0)
+## 
+## Coefficients:
+##           (Intercept)  applicant_income_000s       applicant_race_1  
+##              217.1498                 0.6003               -13.9994</code></pre>
+<pre class="r"><code>summary(lm_model_00)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = loan_amount_000s ~ applicant_income_000s + applicant_race_1, 
+##     data = mortgage_data_subset0)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -15306.2    -97.2    -28.8     60.6  19947.3 
+## 
+## Coefficients:
+##                         Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)           217.149833   2.828705   76.77   &lt;2e-16 ***
+## applicant_income_000s   0.600336   0.003109  193.09   &lt;2e-16 ***
+## applicant_race_1      -13.999386   0.602541  -23.23   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 210.1 on 127723 degrees of freedom
+## Multiple R-squared:  0.2284, Adjusted R-squared:  0.2284 
+## F-statistic: 1.891e+04 on 2 and 127723 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="r"><code>plot(lm_model_00)</code></pre>
+<p><img src="TermProject_files/figure-html/LM%20chunk-1.png" width="768" /><img src="TermProject_files/figure-html/LM%20chunk-2.png" width="768" /><img src="TermProject_files/figure-html/LM%20chunk-3.png" width="768" /><img src="TermProject_files/figure-html/LM%20chunk-4.png" width="768" /></p>
+<pre class="r"><code>#Going to add more variables to perhaps make the lm_model more accurate as a predictor
+#LM - loan vs income level, applicant_income, applicant_race and presence of co_applicant
+lm_model_01</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = loan_amount_000s ~ applicant_income_000s + applicant_race_1 + 
+##     co_applicant, data = mortgage_data_subset0)
+## 
+## Coefficients:
+##           (Intercept)  applicant_income_000s       applicant_race_1  
+##              210.7110                 0.5917               -15.1979  
+##      co_applicantTRUE  
+##               30.9378</code></pre>
+<pre class="r"><code>summary(lm_model_01)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = loan_amount_000s ~ applicant_income_000s + applicant_race_1 + 
+##     co_applicant, data = mortgage_data_subset0)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -15092.8    -96.0    -28.0     59.7  20070.6 
+## 
+## Coefficients:
+##                         Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)           210.711042   2.832448   74.39   &lt;2e-16 ***
+## applicant_income_000s   0.591744   0.003119  189.72   &lt;2e-16 ***
+## applicant_race_1      -15.197943   0.602783  -25.21   &lt;2e-16 ***
+## co_applicantTRUE       30.937813   1.201040   25.76   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 209.5 on 127722 degrees of freedom
+## Multiple R-squared:  0.2324, Adjusted R-squared:  0.2324 
+## F-statistic: 1.289e+04 on 3 and 127722 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="r"><code>plot(lm_model_01)</code></pre>
+<p><img src="TermProject_files/figure-html/LM%20chunk-5.png" width="768" /><img src="TermProject_files/figure-html/LM%20chunk-6.png" width="768" /><img src="TermProject_files/figure-html/LM%20chunk-7.png" width="768" /><img src="TermProject_files/figure-html/LM%20chunk-8.png" width="768" /></p>
+<pre class="r"><code>#ggplot(lm_model_01) + aes(col=applicant_race_1)
+
+#LM - loan vs income level, applicant_income, applicant_race and co_applicant_race
+lm_model_02</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = loan_amount_000s ~ applicant_income_000s + applicant_race_1 + 
+##     co_applicant_race_1, data = mortgage_data_subset0)
+## 
+## Coefficients:
+##           (Intercept)  applicant_income_000s       applicant_race_1  
+##              274.1433                 0.5915               -12.6088  
+##   co_applicant_race_1  
+##               -9.4405</code></pre>
+<pre class="r"><code>summary(lm_model_02)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = loan_amount_000s ~ applicant_income_000s + applicant_race_1 + 
+##     co_applicant_race_1, data = mortgage_data_subset0)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -15084.3    -95.8    -27.9     59.6  20076.4 
+## 
+## Coefficients:
+##                         Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)           274.143276   3.477607   78.83   &lt;2e-16 ***
+## applicant_income_000s   0.591496   0.003116  189.84   &lt;2e-16 ***
+## applicant_race_1      -12.608832   0.602750  -20.92   &lt;2e-16 ***
+## co_applicant_race_1    -9.440509   0.337071  -28.01   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 209.4 on 127722 degrees of freedom
+## Multiple R-squared:  0.2332, Adjusted R-squared:  0.2331 
+## F-statistic: 1.294e+04 on 3 and 127722 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="r"><code>plot(lm_model_02)</code></pre>
+<p><img src="TermProject_files/figure-html/LM%20chunk-9.png" width="768" /><img src="TermProject_files/figure-html/LM%20chunk-10.png" width="768" /><img src="TermProject_files/figure-html/LM%20chunk-11.png" width="768" /><img src="TermProject_files/figure-html/LM%20chunk-12.png" width="768" /></p>
+<pre class="r"><code>#Going to try using the LM algorithm to try to predict income instead
+lm_model_03</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = applicant_income_000s ~ loan_amount_000s + applicant_race_1 + 
+##     co_applicant, data = mortgage_data_subset0)
+## 
+## Coefficients:
+##      (Intercept)  loan_amount_000s  applicant_race_1  co_applicantTRUE  
+##          -6.6980            0.3715            4.5099           20.6318</code></pre>
+<pre class="r"><code>summary(lm_model_03)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = applicant_income_000s ~ loan_amount_000s + applicant_race_1 + 
+##     co_applicant, data = mortgage_data_subset0)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2561.7   -37.5   -12.0    18.4 26573.4 
+## 
+## Coefficients:
+##                   Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)      -6.697964   2.292424  -2.922  0.00348 ** 
+## loan_amount_000s  0.371542   0.001958 189.722  &lt; 2e-16 ***
+## applicant_race_1  4.509857   0.478658   9.422  &lt; 2e-16 ***
+## co_applicantTRUE 20.631821   0.952408  21.663  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 166 on 127722 degrees of freedom
+## Multiple R-squared:  0.2288, Adjusted R-squared:  0.2288 
+## F-statistic: 1.263e+04 on 3 and 127722 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="r"><code>plot(lm_model_03)</code></pre>
+<p><img src="TermProject_files/figure-html/LM%20chunk-13.png" width="768" /><img src="TermProject_files/figure-html/LM%20chunk-14.png" width="768" /><img src="TermProject_files/figure-html/LM%20chunk-15.png" width="768" /><img src="TermProject_files/figure-html/LM%20chunk-16.png" width="768" /></p>
+<p><em>KNN Classification:</em></p>
+<ul>
+<li><p>I wanted to use the KNN classification algorithm to try and see if I could make a model which could predict whether a loan would be approved or denied, given the loan amount requested, the applicant’s income, race and presence of co-applicant</p></li>
+<li><p>I took several steps to further clean my data to prepare for this process, including (but not limited to) normalizing my data so that they are all on the same scale (0 to 1).</p></li>
+<li><p>I used roughly 90% of my data to train the model and 10% to test it</p></li>
+<li><p>I made two models: one with a NN coefficient (k) of 357, which is roughly the square root of my total observations and one where k is 5 to see if one of them was better than the other</p></li>
+<li><p>I used a confusion matrix to determine the accuracy of my models.</p>
+<ul>
+<li><p>I found that my first model, where K=357, was more accurate than my other model</p></li>
+<li><p>Model_00 was accurate roughly 74.3% of the time, where as model_01 was accurate only 68.6% of the time</p></li>
+<li><p>I chose to stick with model_00, but either way, they were both decently accurate.</p></li>
+</ul></li>
+</ul>
+<pre class="r"><code>#knn_model_00
+#K = 357
+plot(knn_model_00)</code></pre>
+<p><img src="TermProject_files/figure-html/KNN_chunk-1.png" width="768" /></p>
+<pre class="r"><code>plot(tbl_00)</code></pre>
+<p><img src="TermProject_files/figure-html/KNN_chunk-2.png" width="768" /></p>
+<pre class="r"><code>confusionMatrix(tbl_00)</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##                knn_model_00
+## knn_test_target FALSE TRUE
+##           FALSE   740 2639
+##           TRUE    634 8760
+##                                           
+##                Accuracy : 0.7438          
+##                  95% CI : (0.7361, 0.7513)
+##     No Information Rate : 0.8924          
+##     P-Value [Acc &gt; NIR] : 1               
+##                                           
+##                   Kappa : 0.187           
+##                                           
+##  Mcnemar&#39;s Test P-Value : &lt;2e-16          
+##                                           
+##             Sensitivity : 0.53857         
+##             Specificity : 0.76849         
+##          Pos Pred Value : 0.21900         
+##          Neg Pred Value : 0.93251         
+##              Prevalence : 0.10757         
+##          Detection Rate : 0.05793         
+##    Detection Prevalence : 0.26454         
+##       Balanced Accuracy : 0.65353         
+##                                           
+##        &#39;Positive&#39; Class : FALSE           
+## </code></pre>
+<pre class="r"><code>#K = 5
+plot(knn_model_01)</code></pre>
+<p><img src="TermProject_files/figure-html/KNN_chunk-3.png" width="768" /></p>
+<pre class="r"><code>tbl_01</code></pre>
+<pre><code>##                knn_model_01
+## knn_test_target FALSE TRUE
+##           FALSE  1174 2205
+##           TRUE   1810 7584</code></pre>
+<pre class="r"><code>confusionMatrix(tbl_01)</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##                knn_model_01
+## knn_test_target FALSE TRUE
+##           FALSE  1174 2205
+##           TRUE   1810 7584
+##                                           
+##                Accuracy : 0.6857          
+##                  95% CI : (0.6775, 0.6937)
+##     No Information Rate : 0.7664          
+##     P-Value [Acc &gt; NIR] : 1               
+##                                           
+##                   Kappa : 0.1608          
+##                                           
+##  Mcnemar&#39;s Test P-Value : 5.034e-10       
+##                                           
+##             Sensitivity : 0.39343         
+##             Specificity : 0.77475         
+##          Pos Pred Value : 0.34744         
+##          Neg Pred Value : 0.80732         
+##              Prevalence : 0.23362         
+##          Detection Rate : 0.09191         
+##    Detection Prevalence : 0.26454         
+##       Balanced Accuracy : 0.58409         
+##                                           
+##        &#39;Positive&#39; Class : FALSE           
+## </code></pre>
+<p><em>KMeans:</em></p>
+<ul>
+<li><p>I used this algorithm in hopes of organizing my data into similar clusters so that I may be able to extrapolate some useful insights from these clusters.</p></li>
+<li><p>I made a few different models. The first one I built; I initially used the normalized dataset I used for my KNN classification.</p>
+<ul>
+<li>While this model had was the best fit of the models I tried (had the highest between_SS / total_SS, 75.1 %), it did not allow for any useful interpretation of the data. At least none that I could find.</li>
+</ul></li>
+<li><p>So then, I tried making a couple different models with non-normalized knn-data with 5 clusters (the number 5 was chosen arbitrarily).</p>
+<ul>
+<li>These models were not as good of a fit as my first one (between_SS / total_SS = 66.4%), but in model_02, I found that loan amounts clustered around 347,000 had the highest rate of approval, which I found was interesting.</li>
+</ul></li>
+</ul>
+<pre class="r"><code>kmeans_model_01$size</code></pre>
+<pre><code>## [1] 85099     9   196  3736 38686</code></pre>
+<pre class="r"><code>kmeans_model_01$centers</code></pre>
+<pre><code>##   loan_amount_000s preapproval co_applicant applicant_sex co_applicant_sex
+## 1         118.5041   0.8101270    0.6426750      1.364117         3.839834
+## 2        6162.6667   0.8888889    0.4444444      1.000000         3.111111
+## 3        3047.2500   0.8724490    0.4795918      1.127551         3.341837
+## 4         865.0356   0.8078158    0.4480728      1.199946         3.237687
+## 5         347.4261   0.7612573    0.4777697      1.267384         3.321951
+##   applicant_income_000s applicant_white co_applicant_white loan_approved
+## 1              69.71181       0.1634802          0.6833570     0.6406538
+## 2           14951.33333       0.3333333          0.4444444     0.3333333
+## 3            1764.32143       0.1632653          0.5357143     0.5969388
+## 4             376.04684       0.2194861          0.5685225     0.6686296
+## 5             135.12666       0.2159696          0.5714987     0.7517965</code></pre>
+<pre class="r"><code>kmeans_model_01$betweenss/kmeans_model_00$totss</code></pre>
+<pre><code>## [1] 52889.66</code></pre>
+<pre class="r"><code>kmeans_model_02$size</code></pre>
+<pre><code>## [1] 38686  3736     9   196 85099</code></pre>
+<pre class="r"><code>kmeans_model_02$centers</code></pre>
+<pre><code>##   loan_amount_000s preapproval co_applicant applicant_income_000s
+## 1         347.4261   0.7612573    0.4777697             135.12666
+## 2         865.0356   0.8078158    0.4480728             376.04684
+## 3        6162.6667   0.8888889    0.4444444           14951.33333
+## 4        3047.2500   0.8724490    0.4795918            1764.32143
+## 5         118.5041   0.8101270    0.6426750              69.71181
+##   applicant_white loan_approved
+## 1       0.2159696     0.7517965
+## 2       0.2194861     0.6686296
+## 3       0.3333333     0.3333333
+## 4       0.1632653     0.5969388
+## 5       0.1634802     0.6406538</code></pre>
+<pre class="r"><code>kmeans_model_02$betweenss/kmeans_model_00$totss   </code></pre>
+<pre><code>## [1] 52889.6</code></pre>
+<hr />
+</div>
+<div id="phase-6-building-a-data-product" class="section level2">
+<h2>Phase 6: Building a Data Product</h2>
+<p><strong>NOTE:</strong> In order to run my shiny app, make sure you manually run either the phase06.R script or the source() function in app.R. This will take some time due to the size of the data, so give it a minute.</p>
+<p>My Rshiny code is fairly simple. It is organized into 4 files: ui.R, server.R, phase06.R and finally app.R to bring it all together. The job of my ui file is to simply allocate to me room on the screen to insert input and to draw my outputs. The inserting input part of its job is achieved in the sidebarPanel via the two selectInput functions I have in it. The output(s) are displayed in the mainPanel via my uiOutput(‘tabs’) function. The inputs in this case are the number of nearest neighbors to consider for my knn models and the number of clusters for my k-means models.</p>
+<p>The server.R has the primary function of reading the input and figuring out which model(s) to run and what to output. For the knn models, I am displaying the plot of the knn model, a confusion-matrix in table form and the analysis of the confusion matrix. For my k-means models, I am displaying the centers that the clusters have formed and the goodness of the model (as calculated by between_ss/total_ss) as these are the variables I’m most interested in.</p>
+<p>The phase06.R is where most of the heavy lifting for this app is done; this is where the models are calculated. This was supposed to be done in the server.R file so as to make my app even more dynamic, however, R shiny was having issues performing these calculations due to the size of my data. Therefore, I had to make the calculations separately and beforehand, rather than dynamically via R shiny.</p>
+<p>App.R is where I can execute all the necessary files with ease.</p>
+<p><img src="phase06_00.png" /><!-- --></p>
+<p><img src="phase06_01.png" /><!-- --></p>
+</div>
+<div id="phase-7-documenting-and-reporting" class="section level2">
+<h2>Phase 7: Documenting and Reporting</h2>
+<p>To document what I have done and to report my outcomes, I have made this html document using R markdown</p>
+<hr />
+</div>
+</div>
+
+   
+   
+              </div>
+  </div>
+  </div>
+  </div>
+   
+      
+
+  <script>
+    $(document).ready(function () {
+
+		// add bootstrap table styles to pandoc tables
+	$('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+		
+ 		
+	    });
+  </script>
+
+
+
+    <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+	var script = document.createElement("script");
+	script.type = "text/javascript";
+	script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+	document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+  
+</body>
+</html>
